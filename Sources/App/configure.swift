@@ -1,4 +1,6 @@
 import Vapor
+import FluentPostgresDriver
+import Fluent
 
 // configures your application
 public func configure(_ app: Application) throws {
@@ -7,4 +9,9 @@ public func configure(_ app: Application) throws {
 
     // register routes
     try routes(app)
+    
+    app.databases.use(
+        .postgres(hostname: "localhost", username: "username", password: "vapor", database: "books"), as: .psql)
+    
+    
 }
