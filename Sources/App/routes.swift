@@ -1,5 +1,5 @@
 import Vapor
-//import Fluent
+import Fluent
 
 func routes(_ app: Application) throws {
 
@@ -7,13 +7,21 @@ func routes(_ app: Application) throws {
     app.group("Book") { book in
      // GET /plants
      book.get("getbook") { req in
-         "Get all books"
+       Books(id: UUID(),title: "bookname")
      }
      // POST /plants
      book.post("postbook", ":id")  { req -> String in
          let id = req.parameters.get("id")!
         return "Post book , \(id)"
      }
+        
+        
+        book.post("postbook")  { req -> Books in
+//            let book = Books(id: UUID(),title: "bookname")
+//            print(book)
+            return try req.content.decode(Books.self)
+        }
+        
      // GET /plants/:id
 //     book.get(":id") { req in
 //     let id = req.parameters.get("id")!
