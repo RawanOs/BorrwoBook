@@ -11,7 +11,11 @@ public func configure(_ app: Application) throws {
     try routes(app)
     
     app.databases.use(
-        .postgres(hostname: "localhost", username: "username", password: "vapor", database: "books"), as: .psql)
+        .postgres(hostname: "localhost",
+                  username:"username",
+                  password: "vapor",
+                  database: "books"),
+        as: .psql)
     
-    
+    app.migrations.add(CreatBook(),to: .psql)
 }

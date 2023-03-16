@@ -18,13 +18,12 @@ struct BooksController: RouteCollection {
 //        readAll(use: Update)
          "register any new routes to."
     }
+
     
-//    func index(req:Request) throws -> EventLoopFuture<[Books]> {
-//        return Books.query(on: req.db).all()
-//    }
-    
-    func create(req: Request) async throws -> String {
-     return "Create New one"
+    //create new records
+    func create(req: Request) async throws -> EventLoopFuture<Books> {
+        let Books = try req.content.decode(Books.self)
+        return Books.create(on: req.db).map { Books }
      }
     
     func Update(req: Request) async throws -> String {
@@ -32,8 +31,9 @@ struct BooksController: RouteCollection {
      }
     
      //Read All records
-     func readAll(req: Request) async throws -> String {
-     return "This is plants world"
+     func readAll(req: Request) async throws -> [Books] {
+         let _: [Books] = [Books(title: "spider"),Books(title: "hh")]
+         return try await Books.query(on: req.db).all()
      }
     
     
