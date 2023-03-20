@@ -10,12 +10,16 @@ public func configure(_ app: Application) throws {
     // register routes
     try routes(app)
     
+    //PostgeSQL Config
     app.databases.use(
         .postgres(hostname: "localhost",
-                  username:"username",
+                  username:"postgres",
                   password: "vapor",
                   database: "books"),
         as: .psql)
     
-    app.migrations.add(CreatBook(),to: .psql)
+    
+    //Migration Config
+    app.migrations.add(CreatBook())
+    app.migrations.add(CreatBorrwoBooks())
 }

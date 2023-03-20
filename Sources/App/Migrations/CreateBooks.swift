@@ -9,18 +9,18 @@ import Foundation
 import Fluent
 import Vapor
 import FluentPostgresDriver
-
-
-
+//my table "version control"
+// prepare my table 
 
 struct CreatBook: Migration {
     func prepare(on database: Database) -> EventLoopFuture<Void> {
-        return database.schema("Books")
+         database.schema("Books")
             .id()
-            .field("title", .string, .required)
+            .field("title", .string)
+//          .field("Available", .bool)
+            .field("review", .int)
+            .field("price", .int)
             .create()
-        //table name Book
-        //tow colums ID , Field
 
     }
 
