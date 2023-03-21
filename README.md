@@ -12,11 +12,11 @@
 An API that helps you to borrow books from the bookstore.
 
 ### FEATURE LIST
-1- Get all borrowed books / specific book using ID
-2- Get all borrowers / specific borrower using ID
-3- Delete a borrowed book /  a borrower
-4- Update a borrowed book Info / a borrower info
-5-Add a new borrowed book / a borrower
+ - Get all borrowed books / specific book using ID
+ - Get all borrowers / specific borrower using ID
+ - Delete a borrowed book /  a borrower
+ - Update a borrowed book Info / a borrower info
+ -Add a new borrowed book / a borrower
 
 
 ### Technologies: 
