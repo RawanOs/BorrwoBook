@@ -16,7 +16,7 @@ An API that helps you to borrow books from the bookstore.
  - Get all borrowers / specific borrower using ID
  - Delete a borrowed book /  a borrower
  - Update a borrowed book Info / a borrower info
- -Add a new borrowed book / a borrower
+ - Add a new borrowed book / a borrower
 
 
 ### Technologies: 
