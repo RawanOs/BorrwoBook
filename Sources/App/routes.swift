@@ -15,7 +15,7 @@ func routes(_ app: Application) throws {
         
         //get all Borrworbooks
         book.get("getBorrwobooks") { req in
-            BorrwoBooks.query(on: req.db).all()
+            BorrwoBook.query(on: req.db).all()
             //            Books(id: UUID(),title: "bookname", available: "", review: 0, price: 0)
         }
         
@@ -27,11 +27,9 @@ func routes(_ app: Application) throws {
         }
         
         //get a specific Borrwobook
-        book.get("getBorrwobooks", ":id") { req -> EventLoopFuture<BorrwoBooks> in
-            BorrwoBooks.find(req.parameters.get("id"), on: req.db).unwrap(or: Abort(.notFound))
+        book.get("getBorrwobooks", ":id") { req -> EventLoopFuture<BorrwoBook> in
+            BorrwoBook.find(req.parameters.get("id"), on: req.db).unwrap(or: Abort(.notFound))
         }
-        
-        
         
         
         //add a specific book
@@ -41,8 +39,8 @@ func routes(_ app: Application) throws {
         }
         
         //add a specific Borrwobooks
-        book.post("postBorrwoBooks")  { req -> EventLoopFuture<BorrwoBooks> in
-            let BorrwoBook = try req.content.decode(BorrwoBooks.self)
+        book.post("postBorrwoBooks")  { req -> EventLoopFuture<BorrwoBook> in
+            let BorrwoBook = try req.content.decode(BorrwoBook.self)
             return BorrwoBook.create(on: req.db).map{BorrwoBook}
         }
         
@@ -76,8 +74,8 @@ func routes(_ app: Application) throws {
         
         //update specific BorrwoBooks
         book.put("updateBorrwoBooks"){req -> EventLoopFuture<HTTPStatus> in
-            let book = try req.content.decode(BorrwoBooks.self)
-            return BorrwoBooks.find(book.id, on: req.db)
+            let book = try req.content.decode(BorrwoBook.self)
+            return BorrwoBook.find(book.id, on: req.db)
                 .unwrap(or: Abort(.notFound))
                 .flatMap{
                     $0.name = book.name
@@ -100,7 +98,7 @@ func routes(_ app: Application) throws {
         
         //delete specific BorrwoBooks
         book.delete("deleteBorrwoBooks", ":id"){ req -> EventLoopFuture<HTTPStatus> in
-            BorrwoBooks.find(req.parameters.get("id"), on: req.db)
+            BorrwoBook.find(req.parameters.get("id"), on: req.db)
                 .unwrap(or: Abort(.notFound))
                 .flatMap{
                     $0.delete(on: req.db)

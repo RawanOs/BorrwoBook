@@ -8,10 +8,7 @@
 import Foundation
 import Fluent
 import Vapor
-// content "conferm for content"
 
-//content = decoding "encodable", schema for psql
-//model عشان يفهم انه psql مودل
 final class Books: Model, Content {
     //table of db
     static let schema = "Books"
@@ -33,6 +30,9 @@ final class Books: Model, Content {
     @Field(key:"price")
     var price: Int
     
+    @Children(for: \.$book)
+    var BorrwoBooks: [BorrwoBook]
+    
     
     //init for proparity
     init() {}
@@ -40,7 +40,7 @@ final class Books: Model, Content {
     init(id: UUID? = nil, title: String, review: Int, price:Int ){
         self.id = id
         self.title = title
-//        self.available = available
+//       self.available = available
         self.review = review
         self.price = price
     }

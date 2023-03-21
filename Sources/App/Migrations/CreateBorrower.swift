@@ -19,8 +19,9 @@ struct CreatBorrwoBooks: Migration {
             .field("name", .string)
             .field("phone", .int)
             .field("numOfBooks", .int)
+//            .field("book_id", .uuid, .references("Book", "id "))
             .create()
-
+ 
     }
 
     func revert(on database: Database) -> EventLoopFuture<Void>{

@@ -22,4 +22,5 @@ public func configure(_ app: Application) throws {
     //Migration Config
     app.migrations.add(CreatBook())
     app.migrations.add(CreatBorrwoBooks())
+    app.migrations.add(AddIDCulumToBook())
 }

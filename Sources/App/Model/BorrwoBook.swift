@@ -7,10 +7,11 @@
 import Fluent
 import Vapor
 import Foundation
+import FluentPostgresDriver
 
-final class BorrwoBooks: Model, Content {
+final class BorrwoBook: Model, Content {
     //table of db
-    static let schema = "User"
+    static let schema = "BorrwoBooks"
 
     //my proparity
     @ID(key: .id)
@@ -25,16 +26,21 @@ final class BorrwoBooks: Model, Content {
     @Field(key:"numOfBooks")
     var numOfBooks: Int
     
+    //FK
+    @Parent(key: "book_id")
+    var book: Books
+    
 //    @Field(key:"list of book")
 //    var list: String
     
     //init for proparity
     init() {}
 
-    init(id: UUID? = nil, name: String, phone: Int, numOfBooks: Int){
+    init(id: UUID? = nil, name: String, phone: Int, numOfBooks: Int, book_id: UUID){
         self.id = id
         self.name = name
         self.phone = phone
         self.numOfBooks = numOfBooks
+        self.$book.id = book_id
     }
 }
