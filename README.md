@@ -40,5 +40,5 @@ An API that helps you to borrow books from the bookstore.
  
  ### Team mempear: 
  - Rawan Alsufyani
- - Hajar Alhisii
+ - Hajar Alhissi
  - waad ALruwaili
