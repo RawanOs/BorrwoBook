@@ -6,7 +6,7 @@ Create a bookstore related database
 ### App Statement
 An API that helps you to borrow books from the bookstore
 
-### FEATURE LIST
+### Feature List
  - Get all  books / specific book using ID
  - Get all borrowers / specific borrower using ID
  - Delete a borrowed book /  a borrower
@@ -14,12 +14,12 @@ An API that helps you to borrow books from the bookstore
  - Add a new borrowed book / a borrower
 
 
-### Technologies: 
+### Technologies 
  - Vapor
  - Flunet
  - PostgreSQL
  
-### Tools: 
+### Tools 
  - xcode
  - Postman
  - PostgreSQL
@@ -32,7 +32,7 @@ An API that helps you to borrow books from the bookstore
 </p>
 <img width="422" alt="ERD" src="https://user-images.githubusercontent.com/89946063/226659970-fe63aeea-f401-49fd-b8a3-6e0daaca936e.png">
  
- ### Team mempear: 
+ ### Team mempear 
  - Rawan Alsufyani
  - Hajar Alhissi
  - waad ALruwaili
