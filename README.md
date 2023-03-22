@@ -1,14 +1,10 @@
 # BorrwoBook 📚
 
-<div>
-<h3>
-  <br/> <br/> </h3>   
- </div>   
+### Soloution Concept
+Create a bookstore related database
 
-
-
-### Big Idea
-An API that helps you to borrow books from the bookstore.
+### App Statement
+An API that helps you to borrow books from the bookstore
 
 ### FEATURE LIST
  - Get all  books / specific book using ID
