@@ -1,7 +1,5 @@
-# BorrwoBook 
+# BorrwoBook 📚
 
-
- <!-- PROJECT LOGO -->
 <div>
 <h3>
   <br/> <br/> </h3>   
